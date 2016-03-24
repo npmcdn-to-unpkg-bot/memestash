@@ -17,7 +17,8 @@ app.use(session({
   resave: false,
   saveUninitialized: true
 }));
-
+app.use(passport.initialize());
+app.use(passport.session());
 routes(app, passport);
 
 mongoose.connect(process.env.MONGOLAB_URI);

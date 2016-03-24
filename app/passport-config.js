@@ -15,8 +15,8 @@ module.exports = function(passport){
     });
     
     passport.use(new TwitStrat({
-        clientID: process.env.TWITCLI,
-        clientSecret: process.env.TWITSEC,
+        consumerKey: process.env.TWITCLI,
+        consumerSecret: process.env.TWITSEC,
         callbackURL: process.env.CALLBACK,
         profileFields: ['id', 'displayName']
     }, function(accessToken, refreshToken, profile, done){

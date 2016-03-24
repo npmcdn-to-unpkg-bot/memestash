@@ -1,6 +1,6 @@
 'use strict';
 
-var p = process.cwd(),
+var p = process.cwd() + "/app/",
     backendJS = require('./controllers/backend.js');
     
 module.exports = function(app, passport){

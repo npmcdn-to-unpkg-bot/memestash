@@ -1,7 +1,7 @@
 'use strict';
 
 var mongoose = require("mongoose"),
-    Schema = mongoose.schema,
+    Schema = mongoose.Schema,
     User = new Schema({
        "_id": Number,
        "name": String,
