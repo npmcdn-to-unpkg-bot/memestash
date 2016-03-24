@@ -29,8 +29,7 @@ module.exports = function(app, passport){
     
     app.route('/auth/twitter/callback')
     .get(passport.authenticate("twitter", {
-        failureRedirect: '/',
-        successRedirect: '/home'
-    }));
+        failureRedirect: '/'
+    }), function(req, res){res.redirect("/home");});
     
 }

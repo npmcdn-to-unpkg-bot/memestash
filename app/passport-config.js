@@ -20,7 +20,7 @@ module.exports = function(passport){
         callbackURL: process.env.CALLBACK,
         profileFields: ['id', 'displayName']
     }, function(accessToken, refreshToken, profile, done){
-        User.findById(profile.id).then(function(err, user){
+        User.findById(profile.id, function(err, user){
            if(err){console.log(err);}
            else{
                if(user){
@@ -31,7 +31,8 @@ module.exports = function(passport){
                    newUser._id = profile.id;
                    newUser.name = profile.displayName;
                    
-                   newUser.save(function(err){if(err){console.log(err);} else{return done(null, newUser);}});
+                   newUser.save(function(err){if(err){console.log(err);}});
+                   return done(null, newUser);
                }
            }
         });
