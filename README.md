@@ -1,0 +1,1 @@
+This is intended to be a Pinterest clone in compliance with the last Basejump on FreeCodeCamp.
