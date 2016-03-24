@@ -4,13 +4,13 @@ var p = process.cwd() + "/app/",
     backendJS = require('./controllers/backend.js');
     
 module.exports = function(app, passport){
-        
+    var backendJSI = new backendJS;
     function isLoggedIn(req, res, next){
         req.session.redirect_url = req.originalUrl;
         if(req.isAuthenticated()){
             return next();
         } else {
-            res.redirect('/login');
+            res.redirect('/');
         }
     }
     
@@ -24,12 +24,17 @@ module.exports = function(app, passport){
        res.sendFile(p + '/public/home.html');
     });
     
+    app.route('/my')
+    .get(isLoggedIn, backendJSI.my);
+    
     app.route('/auth/twitter')
     .get(passport.authenticate("twitter"));
     
     app.route('/auth/twitter/callback')
     .get(passport.authenticate("twitter", {
         failureRedirect: '/'
-    }), function(req, res){res.redirect("/home");});
+    }), function(req, res){
+        res.redirect("/home");
+    });
     
 }
