@@ -5,11 +5,18 @@
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.2.min.js"></script>
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
         <script type="text/javascript" src="/app/controllers/frontend.js"></script>
+        <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" type="text/css" />
     </head>
     <body>
         Your memes go here!
-        <form method="POST" action="/add">
-            <input type="file">
+        <form method="POST" action="/add" enctype="multipart/form-data">
+            <div class="form-group"><label for="title">Name of meme: </label><input name="title" type="text"></div>
+            <div class="form-group"><label for="url">Paste link to image: </label><input name="url" type="url"></div>
+            <div class="form-group">OR</div>
+            <div class="form-group">
+            <label for="file">Upload your own</label><input name="file" type="file" accept="image/*">
+            </div>
             <input type="submit">
         </form>
     </body>

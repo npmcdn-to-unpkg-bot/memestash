@@ -27,6 +27,22 @@ module.exports = function(app, passport){
     app.route('/my')
     .get(isLoggedIn, backendJSI.my);
     
+    app.route('/add')
+    .post(isLoggedIn, function(req, res){
+        req.pipe(req.busboy);
+        
+        req.busboy.on("file", function(fieldname, file, filename, encoding, mimetype){
+            console.log("uploading");
+            console.log(fieldname);
+            console.log(filename);
+            console.log(encoding);
+            console.log(mimetype);
+            file.on("data", function(data){
+                console.log(data);
+            })
+        })
+    });
+    
     app.route('/auth/twitter')
     .get(passport.authenticate("twitter"));
     

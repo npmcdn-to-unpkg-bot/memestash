@@ -5,6 +5,7 @@ var express = require("express"),
     passport = require("passport"),
     mongoose = require("mongoose"),
     session = require("express-session"),
+    busboy = require("connect-busboy"),
     app = express();
 
 require("dotenv").load();
@@ -12,6 +13,7 @@ require("./app/passport-config.js")(passport);
 
 app.use('/public', express.static(process.cwd() + '/app/public'));
 app.use('/app/controllers', express.static(process.cwd() + '/app/controllers'));
+app.use(busboy());
 app.use(session({
   secret: 'BenjaminFranklin',
   resave: false,
