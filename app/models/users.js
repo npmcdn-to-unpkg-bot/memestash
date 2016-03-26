@@ -9,7 +9,8 @@ var mongoose = require("mongoose"),
            "_id": Number,
            "title": String,
            "data": Buffer,
-           "url": String
+           "url": String,
+           "MIME": String
        }]
     });
     

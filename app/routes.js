@@ -30,6 +30,9 @@ module.exports = function(app, passport){
     app.route('/add')
     .post(isLoggedIn, backendJSI.add);
     
+    app.route('/delete/:title')
+    .get(isLoggedIn, backendJSI.delete);
+    
     app.route('/auth/twitter')
     .get(passport.authenticate("twitter"));
     
