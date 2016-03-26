@@ -19,10 +19,11 @@
                 for(var i = 0; i<scope.meme.data.data.length; i++){
                     typedarr[i] = scope.meme.data.data[i];
                 }
-                var blob = new Blob([typedarr], {type: scope.meme.MIME});
+                var blob = new Blob([typedarr], {type: scope.meme.MIME, endings: "native"});
                 var url = URL.createObjectURL(blob)
                 console.log(blob);
                 elem.children().attr("src", url);
+                console.log(url);
             }
         }
     })

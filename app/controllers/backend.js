@@ -24,14 +24,19 @@ module.exports = function(){
             else{
                 console.log(req.files);
                     var title, url;
-                    var img = '';
+                    var img;
                     req.pipe(req.busboy);
                     req.busboy.on("file", function(fieldname, file, filename, encoding, mimetype){
                         console.log("Enc: " + encoding + " - MIME: " + mimetype);
                         file.on("data", function(data){
-                            img += data;
+                            if(img){
+                            img = Buffer.concat([img, data]);
+                            } else {
+                                img = data;
+                            }
                         })
                         .on("end", function(){
+                            console.log(img);
                             user.memes.push({"title": title, "data": img, "url": url, "MIME": mimetype});
                             user.save(function(err){if(err){console.log(err);} else{console.log(user);}});
                            res.redirect('/home');
