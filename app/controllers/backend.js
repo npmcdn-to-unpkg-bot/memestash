@@ -22,21 +22,25 @@ module.exports = function(){
             else{
             if(!user){console.log("Error");}    
             else{
+                    var child = {}, title, url;
+                    var img = '';
                     req.pipe(req.busboy);
-                    
                     req.busboy.on("file", function(fieldname, file, filename, encoding, mimetype){
-                        console.log("uploading");
-                        console.log(fieldname);
-                        console.log(filename);
-                        console.log(encoding);
-                        console.log(mimetype);
                         file.on("data", function(data){
-                            console.log("Data incoming to " + user.name);
+                            img += data;
                         })
                         .on("end", function(){
+                            user.memes.push({"title": title, "data": img, "url": url});
+                            user.save(function(err){if(err){console.log(err);} else{console.log(user);}});
                            res.redirect('/home');
                         });
                     })
+                    .on("field", function(key, val, trunc, valtrunc){
+                        if(key=="title"){title = val;}
+                        if(key=="url"){url = val;}
+                       console.log(key + " + " + val + "\n");
+                    });
+                    
                 };
             }
     });

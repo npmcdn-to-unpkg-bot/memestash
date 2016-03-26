@@ -5,6 +5,7 @@ var express = require("express"),
     passport = require("passport"),
     mongoose = require("mongoose"),
     session = require("express-session"),
+    bodyParser = require("body-parser"),
     busboy = require("connect-busboy"),
     app = express();
 
@@ -14,6 +15,8 @@ require("./app/passport-config.js")(passport);
 app.use('/public', express.static(process.cwd() + '/app/public'));
 app.use('/app/controllers', express.static(process.cwd() + '/app/controllers'));
 app.use(busboy());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true})); 
 app.use(session({
   secret: 'BenjaminFranklin',
   resave: false,
