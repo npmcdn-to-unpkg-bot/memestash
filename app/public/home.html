@@ -6,6 +6,8 @@
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
         <script type="text/javascript" src="/app/controllers/frontend.js"></script>
         <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="https://npmcdn.com/masonry-layout@4.0.0/dist/masonry.pkgd.min.js"></script>
+        <script src="https://npmcdn.com/imagesloaded@4.1/imagesloaded.pkgd.min.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" type="text/css" />
     </head>
     <body>
@@ -20,6 +22,23 @@
             <input type="submit">
         </form>
         
-        <meme-cell ng-repeat="meme in mymemes"></meme-cell>
+        <grid>
+        <meme-cell class="grid-item" ng-repeat="meme in mymemes"></meme-cell>
+        </grid>
+        <script>
+                // init Masonry
+                var $grid = $('.grid').masonry({
+                  // options...
+                });
+                // layout Masonry after each image loads
+                $grid.imagesLoaded().progress( function() {
+                  $grid.masonry('layout');
+                });   
+        </script>
+        
+        <style type="text/css">
+            .grid-sizer, .grid-item { width: 20%; }
+            img {width: 200px;}
+        </style>
     </body>
 </html>
