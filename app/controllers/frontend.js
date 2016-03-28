@@ -11,7 +11,7 @@
     .directive('memeCell', function(){
         return {
             restrict: 'E',
-            template: '<div class="nimg"><img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97150&w=350&h=150"><a class="deleteBtn" ng-href="/delete/{{meme.title}}">x</a></div>',
+            template: '<div class="nimg"><img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97150&w=350&h=150"><a class="deleteBtn" ng-href="/delete/{{meme.title}}">&Cross;</a></div>',
             link: function(scope, elem){
                 var buffer = new ArrayBuffer([scope.meme.data.data.length]);
                 var typedarr = new Uint8Array(buffer);
