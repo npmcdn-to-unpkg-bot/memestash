@@ -38,7 +38,25 @@
         
         <style type="text/css">
             .grid-sizer, .grid-item { width: 20%; }
-            img {width: 200px;}
+            .nimg, img {width: 200px;}
+            .nimg {
+              display: block;
+              position: relative;
+              background-color: blue;
+              clear: none;
+            }
+            
+            .deleteBtn {
+              display: none;
+              position: absolute;
+              right: 5px;
+              top: 5px;
+            }
+            
+            .nimg:hover .deleteBtn {
+              display: inline;
+              color: black;
+            }
         </style>
     </body>
 </html>
