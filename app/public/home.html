@@ -27,7 +27,17 @@
         </div>
         
         <style type="text/css">
-            .grid-sizer, .grid-item { width: 20%; }
+            .grid {
+              max-width: 1300px;
+              background-color: rgba(63, 63, 23, 0.7);
+            }
+        
+            .grid-sizer, .grid-item { 
+              width: 200px; 
+              float: left;
+              border: 2px solid #333;
+              border-color: hsla(0, 0%, 0%, 0.5);
+              border-radius: 5px;}
             .nimg, img {width: 200px;}
             .nimg {
               display: block;
