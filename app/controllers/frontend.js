@@ -6,7 +6,7 @@
         $scope.grid = $('.grid').masonry({
             columnWidth: 200,
             itemSelector: '.grid-item',
-            gutter: 20
+            gutter: 10
           });
           
         $http.get('/my').then(function(mymemes){
