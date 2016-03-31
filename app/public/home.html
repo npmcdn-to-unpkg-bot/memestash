@@ -8,6 +8,7 @@
         <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="https://npmcdn.com/masonry-layout@4.0.0/dist/masonry.pkgd.min.js"></script>
         <script src="https://npmcdn.com/imagesloaded@4.1/imagesloaded.pkgd.min.js"></script>
+        <script type="text/javascript" src="https://passy.github.io/angular-masonry/angular-masonry.min.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" type="text/css" />
     </head>
     <body>
@@ -27,9 +28,17 @@
         </div>
         
         <style type="text/css">
+        * { box-sizing: border-box; }
             .grid {
-              max-width: 1300px;
-              background-color: rgba(63, 63, 23, 0.7);
+              max-width: 1200px;
+              background: gray;
+            }
+            
+            /* clearfix */
+            .grid:after {
+              content: '';
+              display: block;
+              clear: both;
             }
         
             .grid-sizer, .grid-item { 

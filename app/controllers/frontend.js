@@ -4,7 +4,9 @@
     angular.module("memes", [])
     .controller("memC", ["$scope", "$http", function($scope, $http){
         $scope.grid = $('.grid').masonry({
-            columnWidth: 200
+            columnWidth: 200,
+            itemSelector: '.grid-item',
+            gutter: 20
           });
           
         $http.get('/my').then(function(mymemes){
@@ -29,6 +31,7 @@
                 scope.meme.url=url;
                 }
                     scope.grid.masonry('layout');
+                    scope.grid.masonry('reloadItems');
             }
         }
     })
