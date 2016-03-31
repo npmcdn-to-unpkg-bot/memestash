@@ -22,19 +22,9 @@
             <input type="submit">
         </form>
         
-        <grid>
+        <div class="grid">
         <meme-cell class="grid-item" ng-repeat="meme in mymemes"></meme-cell>
-        </grid>
-        <script>
-                // init Masonry
-                var $grid = $('.grid').masonry({
-                  // options...
-                });
-                // layout Masonry after each image loads
-                $grid.imagesLoaded().progress( function() {
-                  $grid.masonry('layout');
-                });   
-        </script>
+        </div>
         
         <style type="text/css">
             .grid-sizer, .grid-item { width: 20%; }
@@ -51,9 +41,14 @@
               position: absolute;
               right: 5px;
               top: 5px;
+              z-index: 1;
             }
             
-            img:hover {
+            .deleteBtn:hover {
+              color: red;
+            }
+            
+            img:hover, .deleteBtn:hover + img {
               opacity: 0.6;
             }
             
@@ -62,5 +57,8 @@
               color: black;
             }
         </style>
+        <script>
+
+        </script>
     </body>
 </html>
