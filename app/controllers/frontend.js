@@ -4,9 +4,8 @@
     angular.module("memes", [])
     .controller("memC", ["$scope", "$http", function($scope, $http){
         $scope.grid = $('.grid').masonry({
-            columnWidth: 200,
-            itemSelector: '.grid-item',
-            gutter: 10
+            columnWidth: 210,
+            itemSelector: '.grid-item'
           });
           
         $http.get('/my').then(function(mymemes){
@@ -30,9 +29,15 @@
                 var url = URL.createObjectURL(blob);
                 scope.meme.url=url;
                 }
-                    scope.grid.masonry('layout');
                     scope.grid.masonry('reloadItems');
+                    setTimeout(function() {scope.grid.masonry('layout');}, 100);
             }
-        }
+        };
+    })
+    .directive('addForm', function(){
+        return {
+            restrict: 'E',
+            templateUrl: '/public/add-meme.html'
+        };
     })
 })();
