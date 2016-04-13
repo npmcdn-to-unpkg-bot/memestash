@@ -16,7 +16,7 @@
     .directive('memeCell', function(){
         return {
             restrict: 'E',
-            template: '<div class="nimg"><a class="deleteBtn" ng-href="/delete/{{meme.title}}">&Cross;</a><img ng-src="{{meme.url}}"></div>',
+            template: '<div class="nimg"><a class="deleteBtn" ng-href="/delete/{{meme.title}}">&Cross;</a><img class="items" ng-src="{{meme.url}}"></div>',
             link: function(scope, elem){
                 console.log(scope.meme);
                 if(scope.meme.hasOwnProperty("data")){
@@ -31,6 +31,19 @@
                 }
                     scope.grid.masonry('reloadItems');
                     setTimeout(function() {scope.grid.masonry('layout');}, 100);
+            
+                elem.find('.items').click(function(){
+                    console.log(this);
+                   var html = "<div id='mo' class='modal modal-lg fade' role='dialog'><div class='modal-dialog'><img src='" + this.src + "'></div></div>"; 
+                $('body').append(html);
+                $('#mo').on('hidden.bs.modal', function(){
+                    console.log("hidden");
+                    this.remove();
+                });
+                $('#mo').modal();
+
+                });
+                
             }
         };
     })
