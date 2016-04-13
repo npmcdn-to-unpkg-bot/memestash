@@ -34,7 +34,7 @@
             
                 elem.find('.items').click(function(){
                     console.log(this);
-                   var html = "<div id='mo' class='modal modal-lg fade' role='dialog'><div class='modal-dialog'><img src='" + this.src + "'></div></div>"; 
+                   var html = "<div id='mo' class='modal fade' role='dialog'><div class='modal-dialog'><div class='modal-content'><img src='" + this.src + "'></div></div></div>"; 
                 $('body').append(html);
                 $('#mo').on('hidden.bs.modal', function(){
                     console.log("hidden");
