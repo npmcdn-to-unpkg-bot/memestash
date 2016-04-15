@@ -14,8 +14,6 @@
     <body>
       
         <add-nav></add-nav>
-        Your memes go here!
-        <add-form></add-form>
         
         <div class="grid">
         <meme-cell class="grid-item" ng-repeat="meme in mymemes"></meme-cell>
@@ -25,6 +23,7 @@
         body {
           padding-top: 50px;
         }
+        
         * { box-sizing: border-box; }
             .grid {
               max-width: 1200px;
@@ -43,8 +42,13 @@
               float: left;
               border: 2px solid #333;
               border-color: hsla(0, 0%, 0%, 0.5);
-              border-radius: 5px;}
-            .nimg, .items {width: 200px;}
+              border-radius: 5px;
+            }
+            
+            .nimg, .items {
+              width: 200px;
+            }
+            
             .nimg {
               display: block;
               position: relative;
