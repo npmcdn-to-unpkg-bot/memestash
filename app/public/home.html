@@ -14,7 +14,7 @@
     <body>
       
         <add-nav></add-nav>
-        <div class="container">
+        <div class="container" id="memewall">
         <div class="grid">
         <meme-cell class="grid-item" ng-repeat="meme in mymemes"></meme-cell>
         </div>
@@ -24,11 +24,18 @@
           padding-top: 50px;
         }
         
+        #memewall {
+          padding-top: 50px;
+        }
+        
         * { box-sizing: border-box; }
             .grid {
               max-width: 1200px;
               background: gray;
-              
+              border: 100px double orange;
+              border-image-source: url("https://openclipart.org/image/2400px/svg_to_png/222492/Decorative-Ornamental-Frame-Border-2.png");
+              border-image-slice: 711 716 711 716;
+              border-image-repeat: repeat;
             }
             
             /* clearfix */
