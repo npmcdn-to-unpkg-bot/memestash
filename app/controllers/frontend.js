@@ -53,4 +53,10 @@
             templateUrl: '/public/add-meme.html'
         };
     })
+    .directive('addNav', function(){
+        return {
+            restrict: 'E',
+            templateUrl: '/public/navbar.html'
+        }
+    })
 })();
